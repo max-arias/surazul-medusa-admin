@@ -74,7 +74,7 @@ const projectConfig = {
   store_cors: STORE_CORS,
   database_url: DATABASE_URL,
   admin_cors: ADMIN_CORS,
-  database_extra: { ssl: { rejectUnauthorized: false } },
+  // database_extra: { ssl: { rejectUnauthorized: false } },
   redis_url: REDIS_URL,
 };
 
