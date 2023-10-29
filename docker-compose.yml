@@ -4,7 +4,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: backend:test
+    image: backend:medusa
     container_name: medusa-server
     depends_on:
       - postgres
