@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: backend:test
+    container_name: medusa-server
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/medusa-docker
+      REDIS_URL: redis://cache
+      NODE_ENV: development
+      JWT_SECRET: supersecret
+      COOKIE_SECRET: supersecret
+    ports:
+      - "9000:9000"
+      - "7000:7000"
+      - "7001:7001"
+
+  postgres:
+    image: postgres:10.4
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: medusa-docker
+
+  redis:
+    image: redis
+    container_name: cache
+    expose:
+      - 6379
