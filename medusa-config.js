@@ -45,7 +45,8 @@ const plugins = [
     /** @type {import('@medusajs/admin').PluginOptions} */
     options: {
       autoRebuild: true,
-      path: "/admin",
+      // How to fix this? Login doesn't work if it's not the default.
+      // path: "/admin",
       develop: {
         open: process.env.OPEN_BROWSER !== "false",
       },
