@@ -57,22 +57,12 @@ const plugins = [
       settings: {
         products: {
           indexSettings: {
-            searchableAttributes: [
-              "title", 
-              "description",
-              "variant_sku",
-            ],
-            displayedAttributes: [
-              "title", 
-              "description", 
-              "variant_sku", 
-              "thumbnail", 
-              "handle",
-            ],
+            searchableAttributes: ["title", "description", "variant_sku"],
+            displayedAttributes: ["title", "description", "variant_sku", "thumbnail", "handle"],
           },
           primaryKey: "id",
-          transform: (product) => ({ 
-            id: product.id, 
+          transform: (product) => ({
+            id: product.id,
             // other attributes...
           }),
         },
@@ -97,14 +87,14 @@ const modules = {
   eventBus: {
     resolve: "@medusajs/event-bus-redis",
     options: {
-      redisUrl: REDIS_URL
-    }
+      redisUrl: REDIS_URL,
+    },
   },
   cacheService: {
     resolve: "@medusajs/cache-redis",
     options: {
-      redisUrl: REDIS_URL
-    }
+      redisUrl: REDIS_URL,
+    },
   },
 };
 
